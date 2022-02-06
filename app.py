@@ -1252,7 +1252,7 @@ app.layout = html.Div([
               Input('interval-component_DashProj', 'n_intervals'))
 def updateProjDash(n):
     #dbCSV = pd.read_csv('db.csv')
-    with open('/home/ridigitaltwin/demo_2/assets/db.json') as json_file:
+    with open('assets/db.json') as json_file:
         dbCSV = json.load(json_file)
     BldName = dbCSV['BldName'][0]
     year_ = dbCSV['yearValue'][0]
@@ -1275,7 +1275,7 @@ def updateProjDash(n):
 @app.callback([ Output('ifame-cellOnly3D', 'src')], Input('interval_Only3D', 'n_intervals'))
 def updateOnly3D_1(n):
     #toDB = pd.read_csv('db_maps.csv')
-    with open('/home/ridigitaltwin/demo_2/assets/db_maps.json') as json_file:
+    with open('assets/db_maps.json') as json_file:
         data = json.load(json_file)
     resolution_ = data['Resolution_'][0]
     menu_3d = data['menu_3d'][0]
@@ -1288,7 +1288,7 @@ def updateOnly3D_1(n):
 @app.callback([Output('map-graphProj3D', 'figure'), Output('ifame-cellProj3D', 'src')], Input('interval-component_Dash3D', 'n_intervals'))
 def updateProj3D(n):
     #toDB = pd.read_csv('db_maps.csv')
-    with open('/home/ridigitaltwin/demo_2/assets/db_maps.json') as json_file:
+    with open('assets/db_maps.json') as json_file:
         data = json.load(json_file)
     yearValue = data['yearValue'][0]
     mapCat = data['mapCat'][0]
@@ -1324,7 +1324,7 @@ def update_map2(yearValue, cat, titleText, menu_3d):
     #toDB.to_csv('db_maps.csv')
     data = {'yearValue': [yearValue], 'mapCat': [
         cat], 'Resolution_': [titleText2], 'menu_3d': [menu_3d]}
-    with open('/home/ridigitaltwin/demo_2/assets/db_maps.json', 'w') as outfile:
+    with open('assets/db_maps.json', 'w') as outfile:
         json.dump(data, outfile)
     return ([mapFigure, url3D])
 
@@ -1425,7 +1425,7 @@ def TimeSunBurstContextFigure(BldName, yearValue, resolutionValue, contextValue,
             # toDB.to_csv('db.csv')
             data = {'BldName': [BldName], 'bldYearProj_': [f'All of The Island: {yearValue}'], 'executiveText': [executiveText], 'yearValue': [yearValue], 'resolutionValue': [
                 resolutionValue], 'contextValue': [contextValue], 'timeFigCategory': [timeFigCategory]}
-            with open('/home/ridigitaltwin/demo_2/assets/db.json', 'w') as outfile:
+            with open('assets/db.json', 'w') as outfile:
                 json.dump(data, outfile)
             return ([f'All of The Island: {yearValue}', resolutionValue, fig, sunBurstFig, figContextual, executiveText])
         else:  # (resolutionValue in ['wire','wireb','NotWire']):
@@ -1514,7 +1514,7 @@ def TimeSunBurstContextFigure(BldName, yearValue, resolutionValue, contextValue,
             # toDB.to_csv('db.csv')
             data = {'BldName': [BldName], 'bldYearProj_': [f'{bldScope}: {yearValue}'], 'executiveText': [executiveText], 'yearValue': [yearValue], 'resolutionValue': [
                 resolutionValue], 'contextValue': [contextValue], 'timeFigCategory': [timeFigCategory]}
-            with open('/home/ridigitaltwin/demo_2/assets/db.json', 'w') as outfile:
+            with open('assets/db.json', 'w') as outfile:
                 json.dump(data, outfile)
             return ([f'{bldScope}: {yearValue}', resolutionValue, fig, sunBurstFig, figContextual, executiveText])
     else:
@@ -1574,7 +1574,7 @@ def TimeSunBurstContextFigure(BldName, yearValue, resolutionValue, contextValue,
             # toDB.to_csv('db.csv')
             data = {'BldName': ['None'], 'bldYearProj_': [f'All of The Island: {yearValue}'], 'executiveText': [executiveText], 'yearValue': [yearValue], 'resolutionValue': [
                 resolutionValue], 'contextValue': [contextValue], 'timeFigCategory': [timeFigCategory]}
-            with open('/home/ridigitaltwin/demo_2/assets/db.json', 'w') as outfile:
+            with open('assets/db.json', 'w') as outfile:
                 json.dump(data, outfile)
             return ([f'All of The Island: {yearValue}', resolutionValue, fig, sunBurstFig, figContextual, executiveText])
         elif (resolutionValue in ['wire', 'NotWire', 'wireb']):
@@ -1662,7 +1662,7 @@ def TimeSunBurstContextFigure(BldName, yearValue, resolutionValue, contextValue,
             # toDB.to_csv('db.csv')
             data = {'BldName': ['None'], 'bldYearProj_': [f'{bldScope}: {yearValue}'], 'executiveText': [executiveText], 'yearValue': [yearValue], 'resolutionValue': [
                 resolutionValue], 'contextValue': [contextValue], 'timeFigCategory': [timeFigCategory]}
-            with open('/home/ridigitaltwin/demo_2/assets/db.json', 'w') as outfile:
+            with open('assets/db.json', 'w') as outfile:
                 json.dump(data, outfile)
             return ([f'{bldScope}: {yearValue}', resolutionValue, fig, sunBurstFig, figContextual, executiveText])
         else:
@@ -1726,7 +1726,7 @@ def TimeSunBurstContextFigure(BldName, yearValue, resolutionValue, contextValue,
             # toDB.to_csv('db.csv')
             data = {'BldName': [BldName], 'bldYearProj_': [BldName+": " + str(yearValue)], 'executiveText': [executiveText], 'yearValue': [yearValue], 'resolutionValue': [
                 resolutionValue], 'contextValue': [contextValue], 'timeFigCategory': [timeFigCategory]}
-            with open('/home/ridigitaltwin/demo_2/assets/db.json', 'w') as outfile:
+            with open('assets/db.json', 'w') as outfile:
                 json.dump(data, outfile)
             return ([BldName+": " + str(yearValue), resolutionValue, fig, sunBurstFig, figContextual, executiveText])
 

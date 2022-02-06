@@ -712,10 +712,6 @@ resultsAll1 = simDataset(resData, jsonBldgs)
 allByYear = sim_plot.getAgentsByRangeAllGroupInOut2(
     resultsAll1, range(1976, 2080))
 
-
-# In[12]:
-
-
 allByYear['age_group_2'] = pd.cut(
     allByYear['raw age'].values, ageRangeSmall, labels=ageLbaelsSmall)
 allByYear['income_group_2'] = pd.cut(

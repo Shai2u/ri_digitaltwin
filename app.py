@@ -1752,5 +1752,5 @@ def display_page(pathname):
 if __name__ == '__main__':
     # app.run_server(debug=True, host='127.0.0.1',
     # suppress_callback_exceptions=True)
-    app.run_server(debug=False, dev_tools_ui=False,
-                   dev_tools_props_check=False, host='127.0.0.1')
+    app.run_server(debug=True)
+    

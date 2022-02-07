@@ -26,7 +26,7 @@ colorDictMerge = dict(
 geoJSONloc = "https://raw.githubusercontent.com/Shai2u/BatYamNY/master/json/rib_feb_11.geojson"
 csvResultsloc = "https://raw.githubusercontent.com/Shai2u/BatYamNY/master/excel/result_dec_21_955.csv"
 jsonBldgs = gpd.read_file(geoJSONloc, driver='GeoJSON').to_crs("EPSG:4326")
-resData = pd.read_csv(csvResultsloc)
+resData = pd.read_csv(csvResultsloc, low_memory=False)
 resData = resData.iloc[:, 1:]
 resData['birth_date'] = pd.to_datetime(resData['birth_date'], errors='coerce')
 resData = resData[resData['birth_date'].notna()].copy()
@@ -1753,4 +1753,3 @@ if __name__ == '__main__':
     # app.run_server(debug=True, host='127.0.0.1',
     # suppress_callback_exceptions=True)
     app.run_server(debug=True)
-    

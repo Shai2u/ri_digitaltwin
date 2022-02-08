@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import geopandas as gpd
 import numpy as np
+import Flask
 import datetime
 import pandas as pd
 import json
@@ -999,8 +1000,8 @@ def updateMapYear1(value_, rMap, r, cat='aib', zoomto='All of The Island'):
 
     return fig_map
 
-
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = Flask(__name__)
+app = dash.Dash(__name__, server = server, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
 bgcolor = "#f3f3f1"  # mapbox light map land color

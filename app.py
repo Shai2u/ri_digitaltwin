@@ -7,7 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import geopandas as gpd
 import numpy as np
-import Flask
+from flask import Flask
 import datetime
 import pandas as pd
 import json
